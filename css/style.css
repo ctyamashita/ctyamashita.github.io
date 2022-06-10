@@ -1,0 +1,12 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+/* components */
+@import "components/index.css";
+
+/* general */
+
+body {
+  font-family: 'Lexend Deca', sans-serif !important;
+  background-color: rgb(230, 230, 230) !important;
+}
