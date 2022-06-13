@@ -11,13 +11,15 @@
   <link rel="icon" href="images/favicon.svg">
   <!-- bootstrap link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- fontawesome link -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="images/favicon.svg" />
-  </a>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,34 +39,216 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container mt-5">
     <h2>🗂️ Projects</h2>
     <hr>
     <div class="cards">
       <div class="round-card" style="background: linear-gradient(156deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0.1) 50%), url('images/og_photo.jpg'); background-size: cover; background-position: center">
-        <p class="emoji">📸</p>
+        <p class="icon-more" data-bs-toggle="modal" data-bs-target="#photoRonin"><i class="fas fa-search-plus"></i></p>
         <div class="round-card-text">
           <h3>Photo Ronin</h3>
           <p>Discover new places<br>to take your photos</p>
         </div>
       </div>
       <div class="round-card" style="background: linear-gradient(156deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0.1) 50%), url('images/camper1.jpg'); background-size: cover; background-position: center">
-        <p class="emoji">🚌</p>
+        <p class="icon-more" data-bs-toggle="modal" data-bs-target="#noCamp"><i class="fas fa-search-plus"></i></p>
         <div class="round-card-text">
           <h3>No Camp<br>No Life</h3>
           <p>Get the wheels<br>for the adventure<br>of your life!</p>
         </div>
       </div>
       <div class="round-card" style="background: linear-gradient(156deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0.1) 50%), url('images/watchlist-portrait.png'); background-size: cover; background-position: center">
-        <p class="emoji">🧾</p>
+        <p class="icon-more" data-bs-toggle="modal" data-bs-target="#watchList"><i class="fas fa-search-plus"></i></p>
         <div class="round-card-text">
           <h3>Movie<br>Watchlist</h3>
           <p>Create lists for your<br>favorite movies!</p>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Modals -->
+
+  <!-- Photo Ronin Modal -->
+  <div class="modal fade" id="photoRonin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="photoRoninLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content-cty">
+        <div class="modal-header-cty bg-dark">
+          <h4 class="modal-title text-ronin" id="photoRoninLabel">Photo Ronin 📷</h4>
+          <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/ronin-screenshots.png" alt="screenshots" class="w-100">
+          <div class="mx-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 my-5">
+              <p>Finding the perfect location to take pictures is extremely time consuming and most photographers usually struggle to find it.</p>
+              <p>Our app allow users to discover new spots by browsing through photos or searching by address and/or tags.</p>
+              <p>By selecting one location, the app will display photos and reviews with useful information shared by other photographers.</p>
+              <p>When a photo is uploaded by a user, the metadata(EXIF) of the photo can be extracted and information such as location will be displayed on a map showing exactly where the picture was taken.</p>
+              <p>These places can also be saved in lists created by the user and a link to google maps is provided with the route between user location and the coordinates of the place.</p>
+              <p>Final project created in the last 2 weeks of the bootcamp.</p>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 mb-3">
+                <p><strong>Tools and languages:</strong></p>
+                <ul class="list-inline">
+                  <li>
+                    <strong> Front-end: </strong> <img src="https://img.shields.io/badge/Stimulus-212529?style=for-the-badge&logo=stimulus&logoColor=white" alt="javascript" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/HTML5-212529?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/CSS3-212529?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Bootstrap-212529?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Back-end: </strong><img src="https://img.shields.io/badge/Ruby-212529?style=for-the-badge&logo=ruby&logoColor=white" alt="ruby" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Ruby_on_Rails-212529?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="ruby on rails" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/PostgreSQL-212529?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-212529?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/GIT-212529?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                <p><strong>Team Members:</strong></p>
+                <ul class="list-inline">
+                  <li>Celso Takeshi Yamashita</li>
+                  <li>Hakuyo Harimoto</li>
+                  <li>Nana Kadode</li>
+                  <li>Shinji Momoi</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer-cty bg-dark">
+          <a href="https://github.com/ctyamashita/photo-ronin" target="_blank" class="btn-cty"><i class="fab fa-github-square icon-modal"></i>Github</a>
+          <a href="https://photo-ronin.herokuapp.com/" target="_blank" class="btn-cty"><i class="fas fa-desktop icon-modal"></i>Web app</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Camp No Life Modal -->
+  <div class="modal fade" id="noCamp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="noCampLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content-cty">
+        <div class="modal-header-cty bg-dark">
+          <h4 class="modal-title text-white" id="noCampLabel">No Camp No Life 🚌</h4>
+          <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/no-camp-no-life-screenshot.png" alt="screenshots" class="w-100">
+          <div class="mx-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 my-5">
+              <p>Camping with a camping car can be really fun, but most of us don't have enough money to buy one.</p>
+              <p>In the end people give up on the idea after seen the necessary investment and work to go camping.</p>
+              <p>No Camp No Life is a market place that allows users to rent camping cars fully equipped.</p>
+              <p>Owner's of camping cars can also rent cars from other users.</p>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 mb-3">
+                <p><strong>Tools and languages:</strong></p>
+                <ul class="list-inline">
+                  <li>
+                    <strong> Front-end: </strong> <img src="https://img.shields.io/badge/Stimulus-212529?style=for-the-badge&logo=stimulus&logoColor=white" alt="javascript" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/HTML5-212529?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/CSS3-212529?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Bootstrap-212529?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Back-end: </strong><img src="https://img.shields.io/badge/Ruby-212529?style=for-the-badge&logo=ruby&logoColor=white" alt="ruby" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Ruby_on_Rails-212529?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="ruby on rails" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/PostgreSQL-212529?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-212529?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/GIT-212529?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                <p><strong>Team Members:</strong></p>
+                <ul class="list-inline">
+                  <li>Celso Takeshi Yamashita</li>
+                  <li>Hakuyo Harimoto</li>
+                  <li>Nana Kadode</li>
+                  <li>Shinji Momoi</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer-cty bg-dark">
+          <a href="https://github.com/ctyamashita/no-camp-no-life" target="_blank" class="btn-cty"><i class="fab fa-github-square icon-modal"></i>Github</a>
+          <a href="https://no-camp-no-life.herokuapp.com/" target="_blank" class="btn-cty"><i class="fas fa-desktop icon-modal"></i>Web app</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Watchlist Modal -->
+  <div class="modal fade" id="watchList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="watchListLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content-cty">
+        <div class="modal-header-cty bg-dark">
+          <h4 class="modal-title text-white" id="watchListLabel">Watch List 📄</h4>
+          <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/watch-list-screenshot.png" alt="screenshots" class="w-100">
+          <div class="mx-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 my-5">
+              <p>Watch list organizer. Save your favorite movies in lists!</p>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 mb-3">
+                <p><strong>Tools and languages:</strong></p>
+                <ul class="list-inline">
+                  <li>
+                    <strong> Front-end: </strong>
+                    <img src="https://img.shields.io/badge/HTML5-212529?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/CSS3-212529?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Bootstrap-212529?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Back-end: </strong><img src="https://img.shields.io/badge/Ruby-212529?style=for-the-badge&logo=ruby&logoColor=white" alt="ruby" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Ruby_on_Rails-212529?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="ruby on rails" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/PostgreSQL-212529?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-212529?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/GIT-212529?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                <p><strong>Created by:</strong></p>
+                <ul class="list-inline">
+                  <li>Celso Takeshi Yamashita</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer-cty bg-dark">
+          <a href="https://github.com/ctyamashita/rails-watch-list" target="_blank" class="btn-cty"><i class="fab fa-github-square icon-modal"></i>Github</a>
+          <a href="https://watch-list-cty.herokuapp.com/" target="_blank" class="btn-cty"><i class="fas fa-desktop icon-modal"></i>Web app</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<!-- <li><img src="https://img.shields.io/badge/Photoshop-212529?style=for-the-badge&logo=adobephotoshop&logoColor=white" alt="photoshop" /></li>
+<li><img src="https://img.shields.io/badge/Illustrator-212529?style=for-the-badge&logo=adobeillustrator&logoColor=white" alt="illustrator" /></li>
+<li><img src="https://img.shields.io/badge/InDesign-212529?style=for-the-badge&logo=adobeindesign&logoColor=white" alt="illustrator" /></li>
+
+<li><img src="https://img.shields.io/badge/JavaScript-212529?style=for-the-badge&logo=javascript&logoColor=white" alt="javascript" /></li> -->

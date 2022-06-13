@@ -1,0 +1,38 @@
+.modal-content-cty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: rgb(230, 230, 230);
+  background-clip: padding-box;
+  border-radius: 23px;
+  outline: 0;
+  border: 8px solid white;
+}
+
+
+.modal-header-cty {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.modal-footer-cty {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.text-ronin {
+  color: #00e1c2;
+}
