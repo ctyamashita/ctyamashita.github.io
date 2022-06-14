@@ -1,6 +1,7 @@
 .round-card {
   border-radius: 16px;
-  min-height: 40vh;
+  height: 40vh;
+  min-height: 200px;
   border: 8px solid white;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
   position: relative;
@@ -33,6 +34,7 @@
   .round-card {
     border-radius: 16px;
     height: 40vh;
+    min-height: 200px;
     border: 8px solid white;
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
     position: relative;
@@ -87,4 +89,10 @@
     opacity: 1;
     transform: scale(1.1);
   }
+}
+
+.round-card-about {
+  border-radius: 16px;
+  border: 8px solid white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
 }

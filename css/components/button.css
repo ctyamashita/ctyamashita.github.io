@@ -35,3 +35,23 @@
   opacity: 1;
   transition: .3s;
 }
+
+.btn-cty-home {
+  display: flex;
+  font-size: 32px !important;
+  padding: 8px 16px;
+  border-radius: 12px;
+  align-items: center;
+  gap: 16px;
+  color: rgb(160, 160, 160);
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btn-cty-home:hover {
+  color: white;
+  transform: translate(-4px, -4px);
+  background-color: rgba(255, 255, 255, .1);
+  box-shadow: 4px 4px 0px rgb(20, 20, 20);
+  transition: .3s;
+}
