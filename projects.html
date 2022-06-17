@@ -62,6 +62,13 @@
           <p>Create lists for your<br>favorite movies!</p>
         </div>
       </div>
+      <div class="round-card" style="background: linear-gradient(156deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0.1) 50%), url('images/binge-watcher-screenshot.png'); background-size: cover; background-position: center">
+        <p class="icon-more" data-bs-toggle="modal" data-bs-target="#bingeWatcher"><i class="fas fa-search-plus"></i></p>
+        <div class="round-card-text">
+          <h3>Binge-Watcher</h3>
+          <p>Search for your next series/movie to watch!</p>
+        </div>
+      </div>
     </div>
     <h2 class="mt-5"><i class="fas fa-folder-open"></i> Personal Projects</h2>
     <hr>
@@ -211,6 +218,7 @@
           <div class="mx-4">
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 my-5">
               <p>Watch list organizer. Save your favorite movies in lists!</p>
+              <p>This project uses omdbAPI to fetch data from movies and series.</p>
             </div>
             <hr>
             <div class="d-flex flex-wrap justify-content-between">
@@ -219,18 +227,18 @@
                 <ul class="list-inline">
                   <li>
                     <strong> Front-end: </strong>
-                    <img src="https://img.shields.io/badge/HTML5-212529?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
-                    <img src="https://img.shields.io/badge/CSS3-212529?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
-                    <img src="https://img.shields.io/badge/Bootstrap-212529?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/>
+                    <img src="https://img.shields.io/badge/HTML5-444c55?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/CSS3-444c55?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Bootstrap-444c55?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/>
                   </li>
                   <li>
-                    <strong> Back-end: </strong><img src="https://img.shields.io/badge/Ruby-212529?style=for-the-badge&logo=ruby&logoColor=white" alt="ruby" class="my-1"/> |
-                    <img src="https://img.shields.io/badge/Ruby_on_Rails-212529?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="ruby on rails" class="my-1"/> |
-                    <img src="https://img.shields.io/badge/PostgreSQL-212529?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql" class="my-1"/>
+                    <strong> Back-end: </strong><img src="https://img.shields.io/badge/Ruby-444c55?style=for-the-badge&logo=ruby&logoColor=white" alt="ruby" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Ruby_on_Rails-444c55?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="ruby on rails" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/PostgreSQL-444c55?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql" class="my-1"/>
                   </li>
                   <li>
-                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-212529?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
-                    <img src="https://img.shields.io/badge/GIT-212529?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
+                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-444c55?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/GIT-444c55?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
                   </li>
                 </ul>
               </div>
@@ -289,6 +297,55 @@
         </div>
         <div class="modal-footer-cty bg-dark">
           <a href="https://instagram.com/kyuuko_cat_adventures" target="_blank" class="btn-cty"><i class="fab fa-instagram icon-modal"></i>Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Binge-Watcher Modal -->
+  <div class="modal fade" id="bingeWatcher" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="bingeWatcherLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content-cty">
+        <div class="modal-header-cty bg-dark">
+          <h4 class="modal-title text-white" id="bingeWatcherLabel"><i class="fas fa-clipboard-list ms-2 me-3"></i>Binge-Watcher</h4>
+          <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times-circle"></i></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/binge-watcher-screenshot.png" alt="screenshots" class="w-100">
+          <div class="mx-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 my-5">
+              <p>Search for series and movies and get its detailed information.</p>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="col-12 col-sm-12 col-md-10 col-lg-7 col-xl-7 mb-3">
+                <p><strong>Tools and languages:</strong></p>
+                <ul class="list-inline">
+                  <li>
+                    <strong> Front-end: </strong>
+                    <img src="https://img.shields.io/badge/HTML5-444c55?style=for-the-badge&logo=html5&logoColor=white" alt="html" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/CSS3-444c55?style=for-the-badge&logo=css3&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/Bootstrap-444c55?style=for-the-badge&logo=bootstrap&logoColor=white" alt="css" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/React-444c55?style=for-the-badge&logo=createreactapp&logoColor=white" alt="css" class="my-1"/>
+                  </li>
+                  <li>
+                    <strong> Others: </strong><img src="https://img.shields.io/badge/Visual_Studio_Code-212529?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="visual studio code" class="my-1"/> |
+                    <img src="https://img.shields.io/badge/GIT-212529?style=for-the-badge&logo=git&logoColor=white" alt="git" class="my-1"/>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                <p><strong>Created by:</strong></p>
+                <ul class="list-inline">
+                  <li>Celso Takeshi Yamashita</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer-cty bg-dark">
+          <a href="https://github.com/ctyamashita/react-binge-watcher" target="_blank" class="btn-cty"><i class="fab fa-github-square icon-modal"></i>Github</a>
+          <a href="https://ctyamashita.github.io/react-binge-watcher/" target="_blank" class="btn-cty"><i class="fas fa-desktop icon-modal"></i>Web app</a>
         </div>
       </div>
     </div>
