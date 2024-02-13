@@ -1,14 +1,113 @@
-.navbar-lewagon {
+#navbar {
+  background-color: white;
+  padding: var(--spacing);
+  border-radius: var(--spacing);
+  display: flex;
   justify-content: space-between;
-  background: white;
-  box-shadow: 0 0 16px rgba(0, 0, 0, .1);
-  position: fixed;
+  position: relative;
+  z-index: 1;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+#navbar #logo {
+  height: 48px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#navbar ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: var(--spacing);
+  list-style: none;
+  padding: 0;
+}
+
+#navbar ul li {
+  height: 100%;
+}
+
+.nav-item {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing);
+  border-radius: var(--spacing);
+  box-shadow: inset 0 0 0 2px var(--black);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  box-shadow: inset 0 0 0 4px var(--black);
+}
+
+.nav-expand {
+  display: none;
+}
+
+
+@media (max-width: 480px) {
+  #navbar {
+    height: 48px;
+  }
+
+  #navbar ul {
+    display: none;
+  }
+
+  #navbar ul li {
+    width: 100%;
+  }
+
+  #navbar .nav-item-container:focus-within button {
+    background-color: orange;
+  }
+
+  #navbar .nav-item-container:focus-within ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    background-color: white;
+    margin-top: calc(var(--spacing) * 3);
+    box-shadow: 0 0 0 var(--spacing) white, 0 0 var(--spacing) var(--spacing) rgba(0,0,0,.3);
+    border-radius: .2rem;
+  }
+
+  .nav-expand {
+    display: block;
+    margin-left: auto;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: var(--spacing);
+    cursor: pointer;
+    background-color: white;
+    box-shadow: inset 0 0 0 2px var(--black);
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    flex-direction: row !important;
+  }
+
+  #navbar {
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  #navbar .nav-item-container ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacing);
+  }
+
+  #navbar ul li {
+    width: 100%;
+  }
+
+  #navbar #logo {
+    height: unset;
+  }
 }

@@ -1,0 +1,36 @@
+.main-content {
+  padding: var(--spacing);
+  background: whitesmoke;
+  border-radius: var(--spacing);
+}
+
+.window-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid;
+  margin-bottom: var(--spacing);
+  padding-left: var(--spacing);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* border-radius: var(--spacing); */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

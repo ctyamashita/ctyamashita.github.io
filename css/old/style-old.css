@@ -1,0 +1,31 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Rubik&display=swap');
+
+/* components */
+/* @import "components/index.css"; */
+@import 'components/card.css';
+@import 'components/grid.css';
+@import 'components/navbar.css';
+@import 'components/avatar.css';
+@import 'components/button.css';
+@import 'components/modal.css';
+@import 'components/footer.css';
+@import 'components/banner.css';
+
+/* general */
+
+body {
+  font-family: 'Rubik', sans-serif !important;
+  background-image: linear-gradient(0deg, rgba(230, 230, 230, 1) 10%, rgba(255, 255, 255, 0.7) 40%), url('../images/IMG_20210101_071313.jpg') !important;
+  background-color: rgb(230, 230, 230);
+  background-size: cover;
+  background-position: center;
+}
+
+h2, h1, h3, h4 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.name {
+  font-size: calc(1.375rem + 1.5vw);
+}
