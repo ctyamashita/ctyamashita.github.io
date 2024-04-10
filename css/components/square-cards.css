@@ -8,6 +8,7 @@
   transform: scale(1);
   transition: .3s;
   filter: grayscale(1) opacity(.5);
+  text-decoration: none;
 }
 
 .card:hover, .card:focus {

@@ -10,9 +10,17 @@
 }
 
 #logo {
-  background: whitesmoke;
-  padding: 2px;
+  padding: 0;
   border-radius: 4px;
+  max-height: 93px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#logo:hover,
+#logo:focus {
+  transition: .3s;
+  filter: invert(1) contrast(2);
 }
 
 #navbar ul {
@@ -46,11 +54,11 @@
 @media (max-width: 480px) {
   #navbar ul { display: none; }
 
-  #navbar .nav-item-container:focus-within button.nav-expand {
+  #navbar .nav-item-container:has([aria-expanded="true"]) button.nav-expand {
     background-color: var(--accent-color);
   }
 
-  #navbar .nav-item-container:focus-within ul {
+  #navbar .nav-item-container:has([aria-expanded="true"]) ul {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -83,6 +91,4 @@
     flex-direction: column;
     margin-top: var(--spacing);
   }
-
-  #navbar #logo { height: unset; }
 }

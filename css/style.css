@@ -6,6 +6,7 @@
 @import 'components/navbar.css';
 @import 'components/btn.css';
 @import 'components/window.css';
+@import 'components/clock.css';
 
 @font-face {
   font-family: NikkyouSans;
@@ -14,10 +15,10 @@
 
 :root {
   /* --black: #444c55; */
-  --black: rgb(80,80,80);
+  --black: rgb(60,60,60);
   --spacing: 8px;
-  --accent-color: darkcyan;
-  /* --accent-color: firebrick; */
+  /* --accent-color: darkcyan; */
+  --accent-color: firebrick;
   --white: rgb(230,230,230);
 }
 
@@ -56,12 +57,16 @@ h1 {
 h2 {
   margin: 0;
   text-transform: capitalize;
-  font-size: 1.5rem;
-  letter-spacing: .2rem;
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
 }
 
 h2, h3, h4, button {
   font-family: "Nova Square";
+}
+
+p {
+  line-height: 1.5;
 }
 
 a {

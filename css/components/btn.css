@@ -1,6 +1,7 @@
 .icon-btn {
   border: none;
   font-size: calc(var(--spacing) * 3);
+  line-height: 1;
   background-color: transparent;
   color: var(--white);
   opacity: .5;

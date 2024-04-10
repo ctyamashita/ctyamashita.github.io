@@ -1,12 +1,12 @@
 import van from "./van-1.2.8.min.js"
 
-const  {a, ul, li, div, p, button, h1, h2, h3, img, i} = van.tags;
+const  {a, ul, li, div, p, button, h1, h2, h3, img, i, nav, span} = van.tags;
 
 const projectsData = {
   "photo-ronin": {
     "title": "Photo Ronin",
     "id": "photo-ronin",
-    "color": "#00e0c2",
+    "color": "rgb(0 154 134)",
     "tag": "Discover new places to take your photos",
     "img": "og_photo.jpg",
     "screenshot": "ronin-screenshots.png",
@@ -43,7 +43,7 @@ const projectsData = {
   "no-camp-no-life": {
     "title": "No Camp No Life",
     "id": "no-camp-no-life",
-    "color": "#ff3366",
+    "color": "rgb(232 46 92)",
     "tag": "Get the wheels for the adventure of your life!",
     "img": "camper1.jpg",
     "screenshot": "no-camp-no-life-screenshot.png",
@@ -78,7 +78,7 @@ const projectsData = {
   "movie-watchlist": {
     "title": "Movie Watchlist",
     "id": "movie-watchlist",
-    "color": "#eaab44",
+    "color": "coral",
     "tag": "Create lists for your favorite movies!",
     "img": "watchlist-portrait.png",
     "screenshot": "watch-list-screenshot.png",
@@ -105,7 +105,7 @@ const projectsData = {
   "binge-watcher": {
     "title": "Binge Watcher",
     "id": "binge-watcher",
-    "color": "black",
+    "color": "darkslateblue",
     "tag": "Search for your next series/movie to watch!",
     "img": "binge-watcher-cover.png",
     "screenshot": "binge-watcher-screenshot.png",
@@ -165,13 +165,14 @@ const projectsData = {
   "chat-room" :{
     "title": "Chat Room",
     "id": "chat-room",
-    "color": "#9b589e",
+    "color": "purple",
     "tag": "Join a channel and message Le Wagon students!",
     "img": "simple-chat-cover.png",
     "screenshot": "simple-chat-screenshot-2.png",
     "icon": "fas fa-comment-alt",
     "description":[
-      "Revisit to one of Le Wagon challenges during bootcamp. It's a simple chat using Le Wagon chatroom API."
+      "Revisit to one of Le Wagon challenges during bootcamp. It's a simple chat using Le Wagon chatroom API.",
+      "On this version of the chatroom you will be able to respond to messages, check who is in the chat and when was their last message sent."
     ],
     "links":[{
       "href": "https://github.com/ctyamashita/vue-chatroom",
@@ -192,7 +193,7 @@ const projectsData = {
     "id": "speech-to-text",
     "color": "teal",
     "tag": "Transcript your words into text",
-    "img": "",
+    "img": "speech-to-text.png",
     "screenshot": "speech-to-text-screenshot.png",
     "icon": "fas fa-microphone",
     "description":[
@@ -215,9 +216,9 @@ const projectsData = {
   "csv-editor": {
     "title": "CSV Editor",
     "id": "csv-editor",
-    "color": "gold",
+    "color": "darkorange",
     "tag": "Vizualize tables from CSV files",
-    "img": "",
+    "img": "csv-editor.png",
     "screenshot": "csv-editor-screenshot.png",
     "icon": "fa-solid fa-table",
     "description":[
@@ -237,28 +238,28 @@ const projectsData = {
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
   },
-  "iso-board": {
-    "title": "Isometric board",
-    "id": "iso-board",
-    "color": "",
-    "tag": "Explorer a 2d/3d squared table",
-    "img": "",
-    "screenshot": "csv-editor-screenshot.png",
+  "tower-arena": {
+    "title": "Tower Arena",
+    "id": "tower-arena",
+    "color": "deepskyblue",
+    "tag": "Explore a 2d/3d floor and fight your way to the top!",
+    "img": "tower-arena.png",
+    "screenshot": "tower-arena-screenshot.png",
     "icon": "fa-solid fa-kaaba",
     "description":[
-      "Experiment with 2D and Isometric view board."
+      "This is a mini game where you can battle random enemies and level up your character."
     ],
     "links":[{
-      "href": "https://github.com/ctyamashita/csv-editor",
+      "href": "https://github.com/ctyamashita/tower-game-vue",
       "icon": "fab fa-github-square",
       "title": "Github"
     },
     {
-      "href": "https://ctyamashita.github.io/csv-editor",
+      "href": "https://ctyamashita.github.io/tower-game-vue/",
       "icon": "fas fa-desktop",
       "title": "Web App"
     }],
-    "front":["HTML", "CSS", "JavaScript"],
+    "front":["HTML", "CSS", "JavaScript", "Vue"],
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
   }
@@ -278,21 +279,21 @@ const bioInfo = {
 
 // Components
 
-const Navbar = () => div({id: 'navbar'},
+const Navbar = () => nav({id: 'navbar'},
   button({id:'logo', onclick: () => closeAllWindows()},
     h1('Celso Takeshi Yamashita Portfolio'), img({src: '../images/logo-05.svg', alt: 'logo'}),
   ),
   div({class: 'nav-item-container'},
-    button({class: 'nav-expand'}, i({class: 'fas fa-bars'})),
+    button({class: 'nav-expand', onclick: (e) => expandMenu(e), ariaExpanded: false, onblur: () => collapseMenu()}, i({class: 'fas fa-bars'})),
     ul(
-      li(button({onclick: (e) => openWindow(e), class: 'nav-item', id: 'about'}, "About")),
-      li(button({onclick: (e) => openWindow(e), class: 'nav-item', id: 'projects'}, "Projects")),
+      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'about'}, "About")),
+      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'projects'}, "Projects")),
     )
   )
 )
 
 const Projects = ({items}) => div({class: 'window-content cards'},
-    items.map(item=>div({onclick: (e) => openWindow(e), id: item.id, class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`},
+    items.map(item=>a({onclick: (e) => openWindow(e), id: item.id, class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`, href: `#window-${item.id}`},
       h3(item.title))
     )
 )
@@ -334,7 +335,7 @@ const ProjectInfo = ({data}) => div({class: 'window-content project'},
         data.description.map(line => p(line)),
       ),
       div({class: 'project-links'},
-      data.links.map(link=>a({href: link.href, target:'_blank'}, i({class: link.icon}), link.title))
+      data.links.map(link=>a({href: link.href, target:'_blank', style: `background: ${data.color}`}, i({class: link.icon}), link.title))
     )
     ),
     div({class: 'tools-container'},
@@ -352,7 +353,7 @@ const ProjectInfo = ({data}) => div({class: 'window-content project'},
       )
     ),
     div({class: 'members'},
-      h3('members'),
+      h3(data.team.length == 1 ? 'created by' : 'members'),
       ul(data.team.map(member=>li(member)))
     ),
   ),
@@ -368,7 +369,7 @@ const buildContent = (id) => {
   }
 }
 
-const Window = ({id}) => div({class: "window-container", id: `window-${id}`},
+const Window = ({id}) => div({class: "window-container", id: `window-${id}`, style: `background: ${projectsData[id]?.color}`},
     div({class: 'window-topbar'},
     h2(Object.keys(projectsData).includes(id) ? i({class: projectsData[id].icon}) : i({class: id == 'projects' ? 'fas fa-folder' : "fa-solid fa-circle-user"}),
       ` ${id.replaceAll('-',' ')}`
@@ -397,6 +398,7 @@ const openWindow = (e) => {
   }
   van.add(windowsContainer, Window({id: id}));
   if (windowsContainer.lastElementChild.id == 'window-') windowsContainer.lastElementChild.remove();
+  location.hash = `window-${e.target.id}`;
 }
 
 const closeWindow = (e) => {
@@ -406,9 +408,40 @@ const closeWindow = (e) => {
   const btn = document.getElementById(btnId);
   btn?.removeAttribute('disabled');
   currentWindow.remove();
+  const previousWindow = document.querySelector('.window-container');
+  if (previousWindow?.id == 'window-projects' && btnId !== 'about') {
+    location.hash = btn.id
+  } else {
+    location.hash = previousWindow ? previousWindow.id : '';
+  }
 }
 
 const closeAllWindows = () => {
   document.getElementById('windows-container').innerHTML = '';
   document.querySelectorAll('button:disabled').forEach(btn => btn.removeAttribute('disabled'));
+  location.hash = ''
 }
+
+const expandMenu = (e) => {
+  const expandBtn = e.target.tagName == 'BUTTON' ? e.target : e.target.parentElement;
+  const expanded = expandBtn.getAttribute('aria-expanded') === 'true'
+  expandBtn.setAttribute('aria-expanded', !expanded)
+}
+
+const collapseMenu = () => {
+  const expandBtn = document.querySelector('.nav-expand');
+  const menuItems = Array.from(document.querySelectorAll('.nav-item-container button'));
+  setTimeout(() => {
+    const elFocused = document.querySelector(":focus");
+    if (!menuItems.includes(elFocused)) {
+      expandBtn.setAttribute('aria-expanded', false)
+    }
+  }, 300);
+}
+
+document.addEventListener('keyup', (e) => {
+  if (e.key == "Escape") {
+    const closeBtns = document.querySelectorAll('.window-topbar .icon-btn');
+    if (closeBtns.length > 0) closeBtns[closeBtns.length - 1].click()
+  }
+})

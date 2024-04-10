@@ -101,6 +101,7 @@
 
 .project-info img {
   width: 100%;
+  min-height: 40vh;
   object-fit: cover;
   background-color: white;
   border-radius: var(--spacing);
@@ -146,11 +147,9 @@
 .project-info .tools-container ul { flex-wrap: wrap; }
 
 .project-info .tools-container li {
-  height: 24px;
   width: fit-content;
   background: var(--black);
-  padding: var(--spacing);
-  padding-bottom: 0;
+  padding: calc(var(--spacing) * .75) var(--spacing);
   color: white;
   border-radius: calc(var(--spacing)/2);
   font-weight: 700;
