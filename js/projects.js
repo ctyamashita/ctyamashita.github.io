@@ -8,7 +8,7 @@ const projectsData = {
     "id": "photo-ronin",
     "color": "rgb(0 154 134)",
     "tag": "Discover new places to take your photos",
-    "img": "og_photo.jpg",
+    "img": "og_photo.webp",
     "screenshot": "ronin-screenshots.webp",
     "icon": "fas fa-camera-retro",
     "description": [
@@ -45,7 +45,7 @@ const projectsData = {
     "id": "no-camp-no-life",
     "color": "rgb(232 46 92)",
     "tag": "Get the wheels for the adventure of your life!",
-    "img": "camper1.jpg",
+    "img": "camper1.webp",
     "screenshot": "no-camp-no-life-screenshot.webp",
     "icon": "fas fa-shuttle-van",
     "description":[
