@@ -1,31 +1,102 @@
-/* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Rubik&display=swap');
 
-/* components */
-/* @import "components/index.css"; */
-@import 'components/card.css';
-@import 'components/grid.css';
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+@import 'components/square-cards.css';
 @import 'components/navbar.css';
-@import 'components/avatar.css';
-@import 'components/button.css';
-@import 'components/modal.css';
-@import 'components/footer.css';
-@import 'components/banner.css';
+@import 'components/btn.css';
+@import 'components/window.css';
+@import 'components/clock.css';
 
-/* general */
+@font-face {
+  font-family: NikkyouSans;
+  src: url("fonts/NikkyouSans-mLKax.ttf");
+}
+
+:root {
+  /* --black: #444c55; */
+  --black: rgb(60,60,60);
+  --spacing: 8px;
+  /* --accent-color: darkcyan; */
+  --accent-color: firebrick;
+  --white: rgb(230,230,230);
+}
 
 body {
-  font-family: 'Rubik', sans-serif !important;
-  background-image: linear-gradient(0deg, rgba(230, 230, 230, 1) 10%, rgba(255, 255, 255, 0.7) 40%), url('../images/IMG_20210101_071313.jpg') !important;
-  background-color: rgb(230, 230, 230);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  margin: 0;
+  padding: var(--spacing);
+  font-family: monospace;
+  color: var(--black);
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(0deg, rgba(230, 230, 230, 1) 10%, rgba(255, 255, 255, 0.4) 40%), url('../images/IMG_20210101_071313.jpg');
+  background-color: var(--white);
   background-size: cover;
   background-position: center;
 }
 
-h2, h1, h3, h4 {
-  font-family: 'Montserrat', sans-serif !important;
+h1 {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 
-.name {
-  font-size: calc(1.375rem + 1.5vw);
+h2 {
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
+}
+
+h2, h3, h4, button {
+  font-family: "Nova Square";
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: var(--black);
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: var(--spacing);
+  height: var(--spacing);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+  border-radius: calc(var(--spacing)/2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: calc(var(--spacing)/2);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: dimgray;
 }
