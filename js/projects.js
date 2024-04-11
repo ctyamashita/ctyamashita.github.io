@@ -9,7 +9,7 @@ const projectsData = {
     "color": "rgb(0 154 134)",
     "tag": "Discover new places to take your photos",
     "img": "og_photo.jpg",
-    "screenshot": "ronin-screenshots.png",
+    "screenshot": "ronin-screenshots.webp",
     "icon": "fas fa-camera-retro",
     "description": [
       "Finding the perfect location to take pictures is extremely time consuming and most photographers usually struggle to find it.",
@@ -46,7 +46,7 @@ const projectsData = {
     "color": "rgb(232 46 92)",
     "tag": "Get the wheels for the adventure of your life!",
     "img": "camper1.jpg",
-    "screenshot": "no-camp-no-life-screenshot.png",
+    "screenshot": "no-camp-no-life-screenshot.webp",
     "icon": "fas fa-shuttle-van",
     "description":[
       "Camping with a camping car can be really fun, but most of us don't have enough money to buy one.",
@@ -80,8 +80,8 @@ const projectsData = {
     "id": "movie-watchlist",
     "color": "coral",
     "tag": "Create lists for your favorite movies!",
-    "img": "watchlist-portrait.png",
-    "screenshot": "watch-list-screenshot.png",
+    "img": "watchlist-portrait.webp",
+    "screenshot": "watch-list-screenshot.webp",
     "icon": "fas fa-clipboard-list",
     "description":[
       "Watch list organizer. Save your favorite movies in lists!"
@@ -107,8 +107,8 @@ const projectsData = {
     "id": "binge-watcher",
     "color": "darkslateblue",
     "tag": "Search for your next series/movie to watch!",
-    "img": "binge-watcher-cover.png",
-    "screenshot": "binge-watcher-screenshot.png",
+    "img": "binge-watcher-cover.webp",
+    "screenshot": "binge-watcher-screenshot.webp",
     "icon": "fas fa-couch",
     "description":[
       "Search for series and movies and get its detailed information.",
@@ -133,8 +133,8 @@ const projectsData = {
     "id": "ee-web-vr-demo",
     "color": "#293C8F",
     "tag": "Exploring low-vision accessibility on VR!",
-    "img": "EE-Demo-cover-2.png",
-    "screenshot": "EE-Demo-cover.png",
+    "img": "EE-Demo-cover-2.webp",
+    "screenshot": "EE-Demo-cover.webp",
     "icon": "fas fa-vr-cardboard",
     "description":[
       "VR experience developed with the A-frame framework for <a href=\"https://equalentry.com\">Equal Entry</a>.",
@@ -167,8 +167,8 @@ const projectsData = {
     "id": "chat-room",
     "color": "purple",
     "tag": "Join a channel and message Le Wagon students!",
-    "img": "simple-chat-cover.png",
-    "screenshot": "simple-chat-screenshot-2.png",
+    "img": "simple-chat-cover.webp",
+    "screenshot": "simple-chat-screenshot-2.webp",
     "icon": "fas fa-comment-alt",
     "description":[
       "Revisit to one of Le Wagon challenges during bootcamp. It's a simple chat using Le Wagon chatroom API.",
@@ -193,8 +193,8 @@ const projectsData = {
     "id": "speech-to-text",
     "color": "teal",
     "tag": "Transcript your words into text",
-    "img": "speech-to-text.png",
-    "screenshot": "speech-to-text-screenshot.png",
+    "img": "speech-to-text.webp",
+    "screenshot": "speech-to-text-screenshot.webp",
     "icon": "fas fa-microphone",
     "description":[
       "Playing around with WebSpeech API. This is a simple project that is converting the audio capture through the microphone into lines of text."
@@ -218,8 +218,8 @@ const projectsData = {
     "id": "csv-editor",
     "color": "darkorange",
     "tag": "Vizualize tables from CSV files",
-    "img": "csv-editor.png",
-    "screenshot": "csv-editor-screenshot.png",
+    "img": "csv-editor.webp",
+    "screenshot": "csv-editor-screenshot.webp",
     "icon": "fa-solid fa-table",
     "description":[
       "Working with serialization and deserialization. You are able to import, vizualize, edit and export CSV files."
@@ -243,8 +243,8 @@ const projectsData = {
     "id": "tower-arena",
     "color": "deepskyblue",
     "tag": "Explore a 2d/3d floor and fight your way to the top!",
-    "img": "tower-arena.png",
-    "screenshot": "tower-arena-screenshot.png",
+    "img": "tower-arena.webp",
+    "screenshot": "tower-arena-screenshot.webp",
     "icon": "fa-solid fa-kaaba",
     "description":[
       "This is a mini game where you can battle random enemies and level up your character."
@@ -313,7 +313,7 @@ const Projects = ({items}) => div({class: 'window-content cards'},
 
 const About = ({info}) => div({class: 'window-content about'},
   div({class: 'about-container'},
-    img({src: 'images/LWT_Profile-low.png', class: 'about-picture'}),
+    img({src: 'images/LWT_Profile-low.webp', class: 'about-picture'}),
     div({class: 'about-bio'},
       h3(info.name),
       info.bio.map(line=>p(line))
