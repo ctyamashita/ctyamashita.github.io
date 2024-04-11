@@ -277,6 +277,19 @@ const bioInfo = {
   others: ['Visual Studio Code', 'git', 'Photoshop', 'Illustrator', 'Indesign']
 }
 
+const buildLinks = (string) => {
+  const stringArr = string.split(/(<\/a>|<a )/)
+  const formattedString = stringArr.map((subString, index)=>{
+    const [href, textLink] = subString.split('>')
+    if (stringArr[index - 1] == '<a ' && stringArr[index + 1] == '</a>' && textLink && href) {
+      return a({href: href.replaceAll(/(href="|")/g,''), target: '_blank'}, textLink)
+    } else {
+      return ['<a ', '</a>'].includes(subString) ? '' : subString
+    }
+  })
+  return formattedString
+}
+
 // Components
 
 const Navbar = () => nav({id: 'navbar'},
@@ -332,7 +345,9 @@ const ProjectInfo = ({data}) => div({class: 'window-content project'},
     img({src: `images/${data.screenshot}`}),
     div({class: 'description-container'},
       div(
-        data.description.map(line => p(line)),
+        data.description.map(line => p(
+          buildLinks(line)
+        )),
       ),
       div({class: 'project-links'},
       data.links.map(link=>a({href: link.href, target:'_blank', style: `background: ${data.color}`}, i({class: link.icon}), link.title))
