@@ -15,10 +15,12 @@
 
 #windows-container .window-container:not(:only-child):last-child {
   max-height: calc(100vh - var(--spacing) * 21);
+  max-height: calc(100svh - var(--spacing) * 21);
 }
 
 #windows-container .window-container:not(:only-child):last-child .window-content {
   max-height: calc(100vh - (var(--spacing)*32));
+  max-height: calc(100svh - (var(--spacing)*32));
 }
 
 .window-container {
@@ -27,6 +29,7 @@
   background: var(--black);
   border-radius: var(--spacing);
   max-height: calc(100vh - var(--spacing) * 12.5);
+  max-height: calc(100svh - var(--spacing) * 12.5);
   animation: .5s 0s open-window;
 }
 
@@ -69,6 +72,7 @@
   background: whitesmoke;
   border-right: 0;
   max-height: calc(100vh - (var(--spacing)*23.5));
+  max-height: calc(100svh - (var(--spacing)*23.5));
   overflow-y: scroll;
   overflow-x: hidden;
   border-radius: calc(var(--spacing)/2);
@@ -84,10 +88,12 @@
 
   #windows-container .window-container:not(:only-child):last-child {
     max-height: calc(100vh - var(--spacing) * 12);
+    max-height: calc(100svh - var(--spacing) * 12);
   }
 
   #windows-container .window-container:not(:only-child):last-child .window-content {
     max-height: calc(100vh - (var(--spacing)*23));
+    max-height: calc(100svh - (var(--spacing)*23));
   }
 }
 
