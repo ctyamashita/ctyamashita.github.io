@@ -58,3 +58,7 @@
   .cards { grid-template-columns: 1fr 1fr 1fr 1fr; }
   .card { height: calc(25vw - (var(--spacing) * 6.305)); }
 }
+
+.illustration > img.card {
+  object-fit: cover;
+}

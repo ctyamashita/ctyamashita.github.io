@@ -305,7 +305,17 @@ const projectsData = {
 
 const illustrations = [
   "Untitled-2-06-1.webp",
-  "kyuuko-rpg.webp"
+  "kyuuko-rpg.webp",
+  "Bck-1.webp",
+  "Cats.webp",
+  "Untitled-1-2-02.webp",
+  "Lisa&Potato+Kyuuko&Gang-03.webp",
+  "vespa-design-01.webp",
+  "pixel-kyuuko.webp",
+  "JapanSeries_Jidouhanbaiki-2.webp",
+  "BlackHole-01.webp",
+  "Great Wave-01.webp",
+  "TAQX-01.webp",
 ]
 
 const bioInfo = {
