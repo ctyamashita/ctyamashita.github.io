@@ -190,6 +190,7 @@
 
 @media (max-width: 550px) {
   .project-info .tools-container { flex-direction: column; }
+  .project-info img { min-height: 20vh;}
 }
 
 @media (max-width: 840px) {

@@ -168,7 +168,7 @@ const projectsData = {
     "color": "purple",
     "tag": "Join a channel and message Le Wagon students!",
     "img": "simple-chat-cover.webp",
-    "screenshot": "simple-chat-screenshot-2.webp",
+    "screenshot": "simple-chat-screenshot-4.webp",
     "icon": "fas fa-comment-alt",
     "description":[
       "Revisit to one of Le Wagon challenges during bootcamp. It's a simple chat using Le Wagon chatroom API.",
@@ -216,7 +216,7 @@ const projectsData = {
   "csv-editor": {
     "title": "CSV Editor",
     "id": "csv-editor",
-    "color": "darkorange",
+    "color": "lightseagreen",
     "tag": "Vizualize tables from CSV files",
     "img": "csv-editor.webp",
     "screenshot": "csv-editor-screenshot.webp",
@@ -262,8 +262,51 @@ const projectsData = {
     "front":["HTML", "CSS", "JavaScript", "Vue"],
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
+  },
+  "kyuuko": {
+    "title": "Kyuuko Cat Adventures",
+    "id": "kyuuko",
+    "color": "darkorange",
+    "tag": "Explore Japan by Kyuuko's eyes",
+    "img": "kyuuko.webp",
+    "screenshot": "kyuuko-screenshot.webp",
+    "icon": "fa-solid fa-torii-gate",
+    "description":[
+      "Kyuuko is a fictional cat that travels around Japan. This is my personal project of illustration and photographic documentation of ordinary, curious and interesting places around Japan."
+    ],
+    "links":[{
+      "href": "https://github.com/ctyamashita/tower-game-vue",
+      "icon": "fab fa-instagram",
+      "title": "Instagram"
+    }],
+    "others":["Adobe Photoshop", "Adobe Illustrator"],
+    "team":["Celso Takeshi Yamashita"]
+  },
+  "battle-arena":{
+    "title": "Battle Arena [WIP]",
+    "color": "rosybrown",
+    "tag": "Create a hero and fight!",
+    "img": "Arena-screenshot-4.webp",
+    "screenshot": "Arena-screenshot-3.webp",
+    "id": "battle-arena",
+    "icon": "",
+    "description": ["Create your hero and battle other players!"],
+    "links": [{
+      "href": "https://github.com/ctyamashita/heroes-arena",
+      "icon": "fab fa-github-square",
+      "title": "Github"
+    }],
+    "front": ["stimulus","css3","html5","bootstrap"],
+    "back": ["Ruby","Ruby on Rails", "PostgreSQL"],
+    "others": ["Visual Studio Code", "git"],
+    "team": ["Celso Takeshi Yamashita"]
   }
 }
+
+const illustrations = [
+  "Untitled-2-06-1.webp",
+  "kyuuko-rpg.webp"
+]
 
 const bioInfo = {
   name: 'Celso Takeshi Yamashita',
@@ -301,6 +344,7 @@ const Navbar = () => nav({id: 'navbar'},
     ul(
       li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'about'}, "About")),
       li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'projects'}, "Projects")),
+      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'illustrations'}, "Illustrations")),
     )
   )
 )
@@ -374,6 +418,11 @@ const ProjectInfo = ({data}) => div({class: 'window-content project'},
   ),
 )
 
+const Illustrations = (({imgs}) => div({class: "window-content illustration cards"},
+  imgs.map(item => img({src: `images/${item}`, class: "card"}))
+  )
+)
+
 const buildContent = (id) => {
   if (projectsData[id]) {
     return ProjectInfo({data: projectsData[id]})
@@ -381,13 +430,15 @@ const buildContent = (id) => {
     return Projects({items: Object.values(projectsData)})
   } else if (id == "about") {
     return About({info: bioInfo})
+  } else if (id == "illustrations") {
+    return Illustrations({imgs: illustrations})
   }
 }
 
 const Window = ({id}) => div({class: "window-container", id: `window-${id}`, style: `background: ${projectsData[id]?.color}`},
     div({class: 'window-topbar'},
     h2(Object.keys(projectsData).includes(id) ? i({class: projectsData[id].icon}) : i({class: id == 'projects' ? 'fas fa-folder' : "fa-solid fa-circle-user"}),
-      ` ${id.replaceAll('-',' ')}`
+      ` ${projectsData[id] ? projectsData[id].title : id.replaceAll('-',' ')}`
     ),
     button({class: 'icon-btn', onclick: (e) => closeWindow(e)}, i({class: 'fas fa-times'}))),
     buildContent(id)
