@@ -330,6 +330,8 @@ const bioInfo = {
   others: ['Visual Studio Code', 'git', 'Photoshop', 'Illustrator', 'Indesign']
 }
 
+const navBarItems = ['About', 'Projects', 'Illustrations']
+
 const buildLinks = (string) => {
   const stringArr = string.split(/(<\/a>|<a )/)
   const formattedString = stringArr.map((subString, index)=>{
@@ -352,15 +354,13 @@ const Navbar = () => nav({id: 'navbar'},
   div({class: 'nav-item-container'},
     button({class: 'nav-expand', onclick: (e) => expandMenu(e), ariaExpanded: false, onblur: () => collapseMenu()}, i({class: 'fas fa-bars'})),
     ul(
-      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'about'}, "About")),
-      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'projects'}, "Projects")),
-      li(button({onclick: (e) => openWindow(e), onblur: () => collapseMenu(), class: 'nav-item', id: 'illustrations'}, "Illustrations")),
+      navBarItems.map(item=>li(button({onclick: () => openWindow(item.toLowerCase()), onblur: () => collapseMenu(), class: 'nav-item', id: item.toLowerCase()}, item)))
     )
   )
 )
 
 const Projects = ({items}) => div({class: 'window-content cards'},
-    items.map(item=>a({onclick: (e) => openWindow(e), id: item.id, class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`, href: `#window-${item.id}`},
+    items.map(item=>a({onclick: () => openWindow(item.id), id: item.id, class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`, href: `#window-${item.id}`},
       h3(item.title))
     )
 )
@@ -450,7 +450,7 @@ const Window = ({id}) => div({class: "window-container", id: `window-${id}`, sty
     h2(Object.keys(projectsData).includes(id) ? i({class: projectsData[id].icon}) : i({class: id == 'projects' ? 'fas fa-folder' : "fa-solid fa-circle-user"}),
       ` ${projectsData[id] ? projectsData[id].title : id.replaceAll('-',' ')}`
     ),
-    button({class: 'icon-btn', onclick: (e) => closeWindow(e)}, i({class: 'fas fa-times'}))),
+    button({class: 'icon-btn', onclick: () => closeWindow(id)}, i({class: 'fas fa-times'}))),
     buildContent(id)
 )
 
@@ -461,9 +461,9 @@ van.add(document.body, div({id: 'windows-container'}))
 
 // functions
 
-const openWindow = (e) => {
-  if (e.target.tagName == "BUTTON") e.target.setAttribute('disabled', true)
-  const id = e.target.tagName == "H3" ? e.target.parentElement.id : e.target.id;
+const openWindow = (id) => {
+  const clickedBtn = document.getElementById(id);
+  if (clickedBtn.tagName == 'BUTTON') clickedBtn.setAttribute('disabled', true)
   const windowsContainer = document.body.lastElementChild
   if (windowsContainer.children.length >= 2) {
     const oldWindow = windowsContainer.firstElementChild;
@@ -474,18 +474,16 @@ const openWindow = (e) => {
   }
   van.add(windowsContainer, Window({id: id}));
   if (windowsContainer.lastElementChild.id == 'window-') windowsContainer.lastElementChild.remove();
-  location.hash = `window-${e.target.id}`;
+  location.hash = `window-${id}`;
 }
 
-const closeWindow = (e) => {
-  const id = e.target.tagName == "BUTTON" ? e.target.parentElement.parentElement.id : e.target.parentElement.parentElement.parentElement.id
-  const currentWindow = document.getElementById(id);
-  const btnId = currentWindow.id.replace('window-', '');
-  const btn = document.getElementById(btnId);
+const closeWindow = (id) => {
+  const currentWindow = document.getElementById(`window-${id}`);
+  const btn = document.getElementById(id);
   btn?.removeAttribute('disabled');
   currentWindow.remove();
   const previousWindow = document.querySelector('.window-container');
-  if (previousWindow?.id == 'window-projects' && btnId !== 'about') {
+  if (previousWindow?.id == 'window-projects' && id !== 'about') {
     location.hash = btn.id
   } else {
     location.hash = previousWindow ? previousWindow.id : '';
@@ -521,3 +519,12 @@ document.addEventListener('keyup', (e) => {
     if (closeBtns.length > 0) closeBtns[closeBtns.length - 1].click()
   }
 })
+
+window.onload = () => {
+  const window = location.hash
+  if (window !== '#') {
+    const id = window.replace('#window-','');
+    if (!navBarItems.map(item=>item.toLowerCase()).includes(id)) openWindow('projects')
+    if (window.includes('window-')) openWindow(id);
+  } 
+}
