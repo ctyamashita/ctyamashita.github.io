@@ -91,11 +91,11 @@ const projectsData = {
       "icon": "fab fa-github-square",
       "title": "Github"
     },
-    {
-      "href": "https://watch-list.herokuapp.com/",
-      "icon": "fas fa-desktop",
-      "title": "Web App"
-    }
+    // {
+    //   "href": "https://watch-list.herokuapp.com/",
+    //   "icon": "fas fa-desktop",
+    //   "title": "Web App"
+    // }
     ],
     "front": ["stimulus","css3","html5","bootstrap"],
     "back": ["Ruby","Ruby on Rails", "PostgreSQL"],
@@ -263,6 +263,32 @@ const projectsData = {
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
   },
+  "pokedex": {
+    "title": "Pokédex",
+    "id": "pokedex",
+    "color": "crimson",
+    "tag": "Test your memory and rediscovery pokémons",
+    "img": "pokedex.webp",
+    "screenshot": "pokedex-screenshot.webp",
+    "icon": "fa-solid fa-magnifying-glass",
+    "description":[
+      "A pokedex that works by giving the pokémon's name. Turn on the sound, and you will hear the pokemon's description.",
+      "This project utilizes <a href=\"https://pokeapi.co/docs/v2\">PokéAPI<a>."
+    ],
+    "links":[{
+      "href": "https://github.com/ctyamashita/pokedex",
+      "icon": "fab fa-github-square",
+      "title": "Github"
+    },
+    {
+      "href": "https://ctyamashita.github.io/pokedex/",
+      "icon": "fas fa-desktop",
+      "title": "Web App"
+    }],
+    "front":["HTML", "CSS", "JavaScript", "VanJS"],
+    "others":["Visual Studio Code", "git"],
+    "team":["Celso Takeshi Yamashita"]
+  },
   "kyuuko": {
     "title": "Kyuuko Cat Adventures",
     "id": "kyuuko",
@@ -333,15 +359,16 @@ const bioInfo = {
 const navBarItems = ['About', 'Projects', 'Illustrations']
 
 const buildLinks = (string) => {
-  const stringArr = string.split(/(<\/a>|<a )/)
+  const stringArr = string.split(/<\/?a>?/)
   const formattedString = stringArr.map((subString, index)=>{
     const [href, textLink] = subString.split('>')
-    if (stringArr[index - 1] == '<a ' && stringArr[index + 1] == '</a>' && textLink && href) {
+    if (textLink && href) {
       return a({href: href.replaceAll(/(href="|")/g,''), target: '_blank'}, textLink)
     } else {
-      return ['<a ', '</a>'].includes(subString) ? '' : subString
+      return subString
     }
   })
+  console.log(stringArr)
   return formattedString
 }
 
