@@ -289,6 +289,31 @@ const projectsData = {
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
   },
+  "task-manager": {
+    "title": "Task Manager",
+    "id": "task-manager",
+    "color": "darkolivegreen",
+    "tag": "Create todo lists",
+    "img": "task.webp",
+    "screenshot": "task-screenshot.webp",
+    "icon": "fa-solid fa-list-check",
+    "description":[
+      "Create to-do lists and organize your items between lists by drag and drop"
+    ],
+    "links":[{
+      "href": "https://github.com/ctyamashita/vue-task-manager/",
+      "icon": "fab fa-github-square",
+      "title": "Github"
+    },
+    {
+      "href": "https://ctyamashita.github.io/vue-task-task-manager/",
+      "icon": "fas fa-desktop",
+      "title": "Web App"
+    }],
+    "front":["HTML", "CSS", "JavaScript", "Vue"],
+    "others":["Visual Studio Code", "git"],
+    "team":["Celso Takeshi Yamashita"]
+  },
   "kyuuko": {
     "title": "Kyuuko Cat Adventures",
     "id": "kyuuko",
