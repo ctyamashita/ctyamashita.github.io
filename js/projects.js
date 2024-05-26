@@ -273,7 +273,7 @@ const projectsData = {
     "icon": "fa-solid fa-magnifying-glass",
     "description":[
       "A pokedex that works by giving the pokémon's name. Turn on the sound, and you will hear the pokemon's description.",
-      "This project utilizes <a href=\"https://pokeapi.co/docs/v2\">PokéAPI<a>."
+      "This project utilizes <a href=\"https://pokeapi.co/docs/v2\">PokéAPI<a> and <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API\">WebSpeech API<a>."
     ],
     "links":[{
       "href": "https://github.com/ctyamashita/pokedex",
