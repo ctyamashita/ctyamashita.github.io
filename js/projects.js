@@ -306,7 +306,7 @@ const projectsData = {
       "title": "Github"
     },
     {
-      "href": "https://ctyamashita.github.io/vue-task-task-manager/",
+      "href": "https://ctyamashita.github.io/vue-task-manager/",
       "icon": "fas fa-desktop",
       "title": "Web App"
     }],
