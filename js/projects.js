@@ -298,7 +298,8 @@ const projectsData = {
     "screenshot": "task-screenshot.webp",
     "icon": "fa-solid fa-list-check",
     "description":[
-      "Create to-do lists and organize your items between lists by drag and drop"
+      "Create multiple to-do lists and organize your tasks/items between lists by dragging and dropping.",
+      "This project utilizes Vue and SortableJS."
     ],
     "links":[{
       "href": "https://github.com/ctyamashita/vue-task-manager/",
