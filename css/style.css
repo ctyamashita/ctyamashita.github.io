@@ -24,9 +24,7 @@
 body {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing);
   margin: 0;
-  padding: var(--spacing);
   font-family: monospace;
   color: var(--black);
   overflow: hidden;
@@ -99,4 +97,10 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: dimgray;
+}
+
+
+a-scene {
+  position: absolute !important;
+  z-index: 0;
 }

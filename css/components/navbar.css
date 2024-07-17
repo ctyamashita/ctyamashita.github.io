@@ -1,6 +1,7 @@
 #navbar {
   background-color: var(--accent-color);
   padding: var(--spacing);
+  margin: var(--spacing);
   border-radius: var(--spacing);
   display: flex;
   justify-content: space-between;

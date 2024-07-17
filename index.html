@@ -7,6 +7,7 @@
   <title>[Celso Yamashita] Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://kit.fontawesome.com/b6f21dd2ae.js" crossorigin="anonymous"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <link rel="prefetch" href="images/Cats.webp" />
   <link rel="prefetch" href="images/vespa-design-01.webp" />
   <link rel="prefetch" href="images/Untitled-1-2-02.webp" />
@@ -14,9 +15,21 @@
   <link rel="prefetch" href="images/pixel-kyuuko.webp" />
   <link rel="prefetch" href="images/kyuuko-rpg.webp" />
   <link rel="prefetch" href="images/Bck-1.webp" />
+  <script src="js/bg-aframe.js"></script>
 
 </head>
 <body>
+  <a-scene
+  renderer="colorManagement: true;"
+  model-viewer="gltfModel: #house">
+  <a-assets>
+    <a-asset-item id="house"
+      src="3d/cube.gltf"
+      response-type="arraybuffer" 
+      crossorigin="anonymous"
+      ></a-asset-item>
+  </a-assets>
+</a-scene>
   <script type="module" src="js/projects.js"></script>
 </body>
 </html>

@@ -137,7 +137,7 @@ const projectsData = {
     "screenshot": "EE-Demo-cover.webp",
     "icon": "fas fa-vr-cardboard",
     "description":[
-      "VR experience developed with the A-frame framework for <a href=\"https://equalentry.com\">Equal Entry</a>.",
+      "VR experience developed with <a href=\"https://aframe.io/\">A-frame</a> for <a href=\"https://equalentry.com\">Equal Entry</a>.",
       "This demo was created for studying ways to turn the VR experience more accessible to people with low-vision.",
       "The building and some of the 3D models were created on SketchUp and the code was developed on glitch for quick prototyping.",
       "You can explore this 3D environment using your browser or a Meta Quest 2 VR headset.",

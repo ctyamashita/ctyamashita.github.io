@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
+  z-index: 1;
 }
 
 #windows-container .window-container:not(:only-child):first-child .window-content {
@@ -26,6 +27,7 @@
 .window-container {
   max-width: calc(100vw - var(--spacing)*4);
   padding: var(--spacing);
+  margin: 0 var(--spacing);
   background: var(--black);
   border-radius: var(--spacing);
   max-height: calc(100vh - var(--spacing) * 12.5);
