@@ -535,7 +535,8 @@ const expandWindow = (id) => {
   const oldWindow = windowsContainer.firstElementChild;
 
   if (windowsContainer.children.length >= 2 && oldWindow.id == clickedWindowId) {
-    windowsContainer.append(...Array.from(windowsContainer.childNodes).reverse())
+    windowsContainer.append(...Array.from(windowsContainer.childNodes).reverse());
+    location.hash = `window-${id}`;
   }
 }
 
