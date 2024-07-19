@@ -95,6 +95,7 @@ AFRAME.registerComponent('model-viewer', {
         modelElOutline.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true');
 
         modelElOutline.setAttribute('material', 'shader: flat; side: back;');
+        modelElOutline.setAttribute('shadow', 'cast: false; receive: false');
 
         modelElOutline.addEventListener('model-loaded', () => {
             const modelElOutline = this.modelElOutline;
