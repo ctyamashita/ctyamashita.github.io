@@ -132,8 +132,6 @@ AFRAME.registerComponent('model-viewer', {
         this.containerEl.appendChild(modelPivotEl);
 
         this.el.appendChild(containerEl);
-
-        document.querySelector('a-scene').computedStyleMap.display = 'block'
     },
 
     onTouchMove: function (evt) {
