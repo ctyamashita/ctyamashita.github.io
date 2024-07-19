@@ -9,7 +9,6 @@ AFRAME.registerComponent('model-viewer', {
 
         el.setAttribute('renderer', { colorManagement: true });
         el.setAttribute('vr-mode-ui', {enabled: false})
-        el.setAttribute('device-orientation-permission-ui', {enabled: false})
 
         this.onModelLoaded = this.onModelLoaded.bind(this);
 
