@@ -1,5 +1,5 @@
 a-scene {
     position: absolute !important;
     z-index: 0;
-    background: radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+    background: radial-gradient(rgba(255, 230, 150, .3), transparent 40%, transparent);
 }

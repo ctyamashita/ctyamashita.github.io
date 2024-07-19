@@ -5,6 +5,10 @@
   z-index: 1;
 }
 
+#windows-container .window-container:not(:only-child):first-child {
+  animation: none;
+}
+
 #windows-container .window-container:not(:only-child):first-child .window-content {
   display: none;
 }
@@ -79,16 +83,27 @@
     top: var(--spacing);
     left: calc(var(--spacing) * 15);
     max-width: calc(100vw - var(--spacing) * 18);
+    margin: var(--spacing) var(--spacing) var(--spacing) 0;
+  }
+
+  #windows-container {
+    gap: 0;
+  }
+
+  .window-content {
+    max-height: calc(100vh - (var(--spacing)*14));
+    max-height: calc(100svh - (var(--spacing)*14));
   }
 
   #windows-container .window-container:not(:only-child):last-child {
     max-height: calc(100vh - var(--spacing) * 12);
     max-height: calc(100svh - var(--spacing) * 12);
+    margin-top: 0;
   }
 
   #windows-container .window-container:not(:only-child):last-child .window-content {
-    max-height: calc(100vh - (var(--spacing)*23));
-    max-height: calc(100svh - (var(--spacing)*23));
+    max-height: calc(100vh - (var(--spacing)*22));
+    max-height: calc(100svh - (var(--spacing)*22));
   }
 }
 

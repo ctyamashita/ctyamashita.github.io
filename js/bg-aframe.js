@@ -93,7 +93,24 @@ AFRAME.registerComponent('model-viewer', {
         // animation
         modelEl.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true');
         modelElOutline.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true');
-        modelElOutline.setAttribute('material', 'shader: flat; side: back;')
+
+        modelElOutline.setAttribute('material', 'shader: flat; side: back;');
+        modelElOutline.setAttribute('shadow', 'cast: false; receive: true');
+
+        modelElOutline.addEventListener('model-loaded', () => {
+            const modelElOutline = this.modelElOutline;
+            const obj = modelElOutline.getObject3D('mesh');
+            // Go over the submeshes and modify materials we want.
+            obj.traverse(node => {
+                node.material.color.set('#000');
+                node.material.side = THREE.BackSide;
+                node.material.shader = 'flat'
+            });
+        })
+
+
+
+
         modelEl.setAttribute('shadow', 'cast: true; receive: false');
 
         modelPivotEl.appendChild(modelEl);
