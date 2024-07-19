@@ -9,6 +9,7 @@ AFRAME.registerComponent('model-viewer', {
 
         el.setAttribute('renderer', { colorManagement: true });
         el.setAttribute('vr-mode-ui', {enabled: false})
+        el.setAttribute('device-orientation-permission-ui', {enabled: false})
 
         this.onModelLoaded = this.onModelLoaded.bind(this);
 
@@ -19,15 +20,11 @@ AFRAME.registerComponent('model-viewer', {
         this.onTouchMove = this.onTouchMove.bind(this);
         this.onTouchEnd = this.onTouchEnd.bind(this);
 
-        this.onOrientationChange = this.onOrientationChange.bind(this);
-
         this.initCameraRig();
         this.initEntities();
 
         // Disable context menu on canvas when pressing mouse right button;
         this.el.sceneEl.canvas.oncontextmenu = function (evt) { evt.preventDefault(); };
-
-        window.addEventListener('orientationchange', this.onOrientationChange);
 
         // Mouse 2D controls.
         document.addEventListener('mouseup', this.onMouseUp);
@@ -135,14 +132,8 @@ AFRAME.registerComponent('model-viewer', {
         this.containerEl.appendChild(modelPivotEl);
 
         this.el.appendChild(containerEl);
-    },
 
-    onOrientationChange: function () {
-        if (AFRAME.utils.device.isLandscape()) {
-            this.cameraRigEl.object3D.position.z -= 1;
-        } else {
-            this.cameraRigEl.object3D.position.z += 1;
-        }
+        document.querySelector('a-scene').computedStyleMap.display = 'block'
     },
 
     onTouchMove: function (evt) {

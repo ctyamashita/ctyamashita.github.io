@@ -394,7 +394,6 @@ const buildLinks = (string) => {
       return subString
     }
   })
-  console.log(stringArr)
   return formattedString
 }
 
@@ -499,7 +498,7 @@ const buildContent = (id) => {
 }
 
 const Window = ({id}) => div({class: "window-container", id: `window-${id}`, style: `background: ${projectsData[id]?.color}`},
-    div({class: 'window-topbar'},
+    div({class: 'window-topbar', onclick: () => expandWindow(id)},
     h2(Object.keys(projectsData).includes(id) ? i({class: projectsData[id].icon}) : i({class: id == 'projects' ? 'fas fa-folder' : "fa-solid fa-circle-user"}),
       ` ${projectsData[id] ? projectsData[id].title : id.replaceAll('-',' ')}`
     ),
@@ -528,6 +527,16 @@ const openWindow = (id) => {
   van.add(windowsContainer, Window({id: id}));
   if (windowsContainer.lastElementChild.id == 'window-') windowsContainer.lastElementChild.remove();
   location.hash = `window-${id}`;
+}
+
+const expandWindow = (id) => {
+  const clickedWindowId = `window-${id}`;
+  const windowsContainer = document.body.lastElementChild;
+  const oldWindow = windowsContainer.firstElementChild;
+
+  if (windowsContainer.children.length >= 2 && oldWindow.id == clickedWindowId) {
+    windowsContainer.append(...Array.from(windowsContainer.childNodes).reverse())
+  }
 }
 
 const closeWindow = (id) => {
