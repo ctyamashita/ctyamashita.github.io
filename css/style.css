@@ -6,6 +6,7 @@
 @import 'components/btn.css';
 @import 'components/window.css';
 @import 'components/clock.css';
+@import 'components/cube.css';
 
 @font-face {
   font-family: NikkyouSans;
@@ -97,10 +98,4 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: dimgray;
-}
-
-
-a-scene {
-  position: absolute !important;
-  z-index: 0;
 }

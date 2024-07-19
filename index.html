@@ -21,10 +21,15 @@
 <body>
   <a-scene
   renderer="colorManagement: true;"
-  model-viewer="gltfModel: #house">
+  model-viewer="gltfModel: #cube; gltfModelOutline: #cube-outline">
   <a-assets>
-    <a-asset-item id="house"
-      src="3d/cube.gltf"
+    <a-asset-item id="cube"
+      src="3d/cube-clean.gltf"
+      response-type="arraybuffer" 
+      crossorigin="anonymous"
+      ></a-asset-item>
+    <a-asset-item id="cube-outline"
+      src="3d/cube-shadow.gltf"
       response-type="arraybuffer" 
       crossorigin="anonymous"
       ></a-asset-item>

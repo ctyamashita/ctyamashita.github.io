@@ -44,7 +44,7 @@
           0.6121,
           1.0
         ],
-        "metallicFactor": 1,
+        "metallicFactor": 0,
         "roughnessFactor": 0.5
       },
       "name": "default material",
@@ -53,13 +53,13 @@
     {
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.1332,
-          0.0,
-          0.0,
+          0.5,
+          0.01,
+          0.01,
           1.0
         ],
         "metallicFactor": 0.6,
-        "roughnessFactor": 0.2
+        "roughnessFactor": 0.7
       },
       "name": "sides",
       "doubleSided": true
@@ -67,13 +67,13 @@
     {
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.3345,
-          0.0,
-          0.0029,
+          0.5,
+          0.01,
+          0.01,
           1.0
         ],
-        "metallicFactor": 1,
-        "roughnessFactor": 0.5
+        "metallicFactor": 0.8,
+        "roughnessFactor": 0.7
       },
       "name": "edges",
       "doubleSided": true
@@ -205,7 +205,7 @@
           },
           "indices": 8,
           "mode": 4,
-          "material": 5
+          "material": 5 
         },
         {
           "attributes": {

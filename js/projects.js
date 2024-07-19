@@ -575,7 +575,7 @@ document.addEventListener('keyup', (e) => {
 
 window.onload = () => {
   const window = location.hash
-  if (window !== '#' && window.hash) {
+  if (typeof window == 'string' && window !== '') {
     const id = window.replace('#window-','');
     if (!navBarItems.map(item=>item.toLowerCase()).includes(id)) openWindow('projects')
     if (window.includes('window-')) openWindow(id);

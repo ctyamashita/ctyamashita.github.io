@@ -1,14 +1,14 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('model-viewer', {
     schema: {
-        gltfModel: { default: '' }
+        gltfModel: { default: '' },
+        gltfModelOutline: { default: ''}
     },
     init: function () {
         var el = this.el;
 
         el.setAttribute('renderer', { colorManagement: true });
         el.setAttribute('vr-mode-ui', {enabled: false})
-        // vr-mode-ui="enabled: false"
 
         this.onModelLoaded = this.onModelLoaded.bind(this);
 
@@ -42,8 +42,9 @@ AFRAME.registerComponent('model-viewer', {
     },
 
     update: function () {
-        if (!this.data.gltfModel) { return; }
+        if (!this.data.gltfModel || !this.data.gltfModelOutline) { return; }
         this.modelEl.setAttribute('gltf-model', this.data.gltfModel);
+        this.modelElOutline.setAttribute('gltf-model', this.data.gltfModelOutline);
     },
 
     initCameraRig: function () {
@@ -70,29 +71,35 @@ AFRAME.registerComponent('model-viewer', {
         var modelPivotEl = this.modelPivotEl = document.createElement('a-entity');
         // This is our glTF model entity.
         var modelEl = this.modelEl = document.createElement('a-entity');
-        // Scene ligthing.
+        var modelElOutline = this.modelElOutline = document.createElement('a-entity');
+        // Scene lighting.
         var lightEl = this.lightEl = document.createElement('a-entity');
         var sceneLightEl = this.sceneLightEl = document.createElement('a-entity');
 
-        sceneLightEl.setAttribute('light', {
-            type: 'ambient',
-            intensity: 1
-          });
-
         modelPivotEl.id = 'modelPivot';
 
-        modelEl.id = 'model';
+        sceneLightEl.setAttribute('light', {
+            type: 'ambient',
+            intensity: .1
+          });
 
+        this.el.appendChild(sceneLightEl);
+
+        modelEl.id = 'model';
+        modelElOutline.id = 'model-outline';
+        // initial rotation
         modelEl.setAttribute('rotation', '30 0 30');
-        modelEl.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true')
-        //   animation="property: rotation; to: 1 8 -10; dur: 2000; easing: linear; loop: true"
-        modelEl.setAttribute('animation-mixer', '');
+        modelElOutline.setAttribute('rotation', '30 0 30');
+        // animation
+        modelEl.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true');
+        modelElOutline.setAttribute('animation', 'property: rotation; to: 30 360 30; dur: 20000; easing: linear; loop: true');
+        modelElOutline.setAttribute('material', 'shader: flat; side: back;')
         modelEl.setAttribute('shadow', 'cast: true; receive: false');
 
-        //   reflection="directionalLight:a-entity#light;"
-
         modelPivotEl.appendChild(modelEl);
-
+        modelPivotEl.appendChild(modelElOutline);
+        
+        // directional light
         lightEl.id = 'light';
         lightEl.setAttribute('position', '-2 2 2');
         lightEl.setAttribute('light', {
@@ -227,13 +234,14 @@ AFRAME.registerComponent('model-viewer', {
         var center;
         var scale;
         var modelEl = this.modelEl;
-        var shadowEl = this.shadowEl;
-        var titleEl = this.titleEl;
         var gltfObject = modelEl.getObject3D('mesh');
+        var modelElOutline = this.modelElOutline;
 
         // Reset position and scales.
         modelEl.object3D.position.set(0, 0, 0);
         modelEl.object3D.scale.set(1.0, 1.0, 1.0);
+        modelElOutline.object3D.position.set(0, 0, 0);
+        modelElOutline.object3D.scale.set(1.0, 1.0, 1.0);
         this.cameraRigEl.object3D.position.z = 3.0;
 
         // Calculate model size.
@@ -247,6 +255,7 @@ AFRAME.registerComponent('model-viewer', {
         scale = 2.0 / size.z < scale ? 2.0 / size.z : scale;
 
         modelEl.object3D.scale.set(scale, scale, scale);
+        modelElOutline.object3D.scale.set(scale, scale, scale);
 
         // Center model at (0, 0, 0).
         modelEl.object3D.updateMatrixWorld();
@@ -257,6 +266,10 @@ AFRAME.registerComponent('model-viewer', {
         modelEl.object3D.position.x = -center.x;
         modelEl.object3D.position.y = -center.y;
         modelEl.object3D.position.z = -center.z;
+
+        modelElOutline.object3D.position.x = -center.x;
+        modelElOutline.object3D.position.y = -center.y;
+        modelElOutline.object3D.position.z = -center.z;
 
         // When in mobile landscape we want to bring the model a bit closer.
         if (AFRAME.utils.device.isLandscape()) { this.cameraRigEl.object3D.position.z -= 1; }
