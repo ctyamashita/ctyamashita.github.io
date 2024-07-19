@@ -108,9 +108,6 @@ AFRAME.registerComponent('model-viewer', {
             });
         })
 
-
-
-
         modelEl.setAttribute('shadow', 'cast: true; receive: false');
 
         modelPivotEl.appendChild(modelEl);
@@ -149,7 +146,6 @@ AFRAME.registerComponent('model-viewer', {
 
     onTouchMove: function (evt) {
         if (evt.touches.length === 1) { this.onSingleTouchMove(evt); }
-        if (evt.touches.length === 2) { this.onPinchMove(evt); }
     },
 
     onSingleTouchMove: function (evt) {
@@ -170,24 +166,6 @@ AFRAME.registerComponent('model-viewer', {
         // Clamp x rotation to [-90,90]
         modelPivotEl.object3D.rotation.x = Math.min(Math.max(-Math.PI / 2, modelPivotEl.object3D.rotation.x), Math.PI / 2);
         this.oldClientY = evt.touches[0].clientY;
-    },
-
-    onPinchMove: function (evt) {
-        var dX = evt.touches[0].clientX - evt.touches[1].clientX;
-        var dY = evt.touches[0].clientY - evt.touches[1].clientY;
-        var modelPivotEl = this.modelPivotEl;
-        var distance = Math.sqrt(dX * dX + dY * dY);
-        var oldDistance = this.oldDistance || distance;
-        var distanceDifference = oldDistance - distance;
-        var modelScale = this.modelScale || modelPivotEl.object3D.scale.x;
-
-        modelScale -= distanceDifference / 500;
-        modelScale = Math.min(Math.max(0.8, modelScale), 2.0);
-        // Clamp scale.
-        modelPivotEl.object3D.scale.set(modelScale, modelScale, modelScale);
-
-        this.modelScale = modelScale;
-        this.oldDistance = distance;
     },
 
     onTouchEnd: function (evt) {
@@ -287,9 +265,6 @@ AFRAME.registerComponent('model-viewer', {
         modelElOutline.object3D.position.x = -center.x;
         modelElOutline.object3D.position.y = -center.y;
         modelElOutline.object3D.position.z = -center.z;
-
-        // When in mobile landscape we want to bring the model a bit closer.
-        if (AFRAME.utils.device.isLandscape()) { this.cameraRigEl.object3D.position.z -= 1; }
     },
 
     onMouseDown: function (evt) {
