@@ -24,7 +24,7 @@
 }
 
 .window-container {
-  max-width: calc(100vw - var(--spacing)*4);
+  width: calc(100vw - var(--spacing)*4);
   padding: var(--spacing);
   margin: 0 var(--spacing);
   background: var(--black);
@@ -82,7 +82,7 @@
   .window-container {
     top: var(--spacing);
     left: calc(var(--spacing) * 15);
-    max-width: calc(100vw - var(--spacing) * 18);
+    width: calc(100vw - var(--spacing) * 22);
     margin: var(--spacing) var(--spacing) var(--spacing) 0;
   }
 
