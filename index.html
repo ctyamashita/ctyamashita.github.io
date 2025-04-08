@@ -15,26 +15,28 @@
   <link rel="prefetch" href="images/pixel-kyuuko.webp" />
   <link rel="prefetch" href="images/kyuuko-rpg.webp" />
   <link rel="prefetch" href="images/Bck-1.webp" />
+  <link rel="prefetch" href="3d/cube-clean.gltf" />
+  <link rel="prefetch" href="3d/cube-outline.gltf" />
   <script src="js/bg-aframe.js"></script>
-
 </head>
 <body>
   <a-scene
+  loading-screen="dotsColor: white; backgroundColor: black"
   renderer="colorManagement: true;"
   model-viewer="gltfModel: #cube; gltfModelOutline: #cube-outline">
-  <a-assets>
-    <a-asset-item id="cube"
-      src="3d/cube-clean.gltf"
-      response-type="arraybuffer" 
-      crossorigin="anonymous"
-      ></a-asset-item>
-    <a-asset-item id="cube-outline"
-      src="3d/cube-outline.gltf"
-      response-type="arraybuffer" 
-      crossorigin="anonymous"
-      ></a-asset-item>
-  </a-assets>
-</a-scene>
+    <a-assets>
+      <a-asset-item id="cube"
+        src="3d/cube-clean.gltf"
+        response-type="arraybuffer" 
+        crossorigin="anonymous"
+        ></a-asset-item>
+      <a-asset-item id="cube-outline"
+        src="3d/cube-outline.gltf"
+        response-type="arraybuffer" 
+        crossorigin="anonymous"
+        ></a-asset-item>
+    </a-assets>
+  </a-scene>
   <script type="module" src="js/projects.js"></script>
 </body>
 </html>

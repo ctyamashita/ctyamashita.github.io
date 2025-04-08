@@ -1,6 +1,6 @@
 import van from "./van-1.2.8.min.js"
 
-const  {a, ul, li, div, p, button, h1, h2, h3, img, i, nav, span} = van.tags;
+const  {a, ul, li, div, p, button, h1, h2, h3, img, i, nav} = van.tags;
 
 window.onload = async () => {
   const response = await fetch("js/projects.json")
@@ -27,7 +27,7 @@ window.onload = async () => {
     bio: [`I'm a Brazilian full-stack web developer living in Yokohama. Before moving to Japan, I used to work as a graphic designer, even though I graduated in architecture.`,
           `My wife and I have always dreamed about living abroad. In 2018 she got a once-in-a-lifetime chance to study in Japan. I left my job, and we started our long journey to the other side of the world in search of new horizons.`,
           `During bootcamp I've developed some projects in Le Wagon Tokyo, and now I intend to start some personal projects to hone my coding skills.`,
-          `Currently I'm working as a full stack web developer for Equal Entry, coding in A-frame, HTML, CSS, and JavaScript for our accessibility development projects. He is also a Teaching Assistant at Le Wagon, a coding school in Tokyo.`
+          `Currently I'm working as a full stack web developer for Equal Entry, using Ruby on Rails, Php, HTML, CSS, JavaScript for our accessibility development projects. I'm also a Teaching Assistant at Le Wagon, a coding school in Tokyo.`
         ],
     front: ['HTML', 'CSS', 'JavaScript', 'Stimulus', 'Bootstrap'],
     back: ['Ruby', 'Ruby on Rails', 'Postgresql'],
@@ -77,9 +77,10 @@ window.onload = async () => {
         info.bio.map(line=>p(line))
       ),
       div({class: 'socials'},
-        a({href: '#', class: 'icon-btn'}, i({class: "fab fa-linkedin"})),
-        a({href: '#', class: 'icon-btn'}, i({class: "fab fa-github-square"})),
-        a({href: '#', class: 'icon-btn'}, i({class: "fab fa-instagram-square"}))
+        a({href: 'https://www.linkedin.com/in/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-linkedin"})),
+        a({href: 'https://github.com/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-github-square"})),
+        a({href: 'https://www.instagram.com/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-instagram-square"})),
+        a({href: 'https://www.behance.net/ctyamashita', class: 'icon-btn', target: '_blank'}, i({class: 'fa-brands fa-square-behance'}))
       ),
       div({class: 'about-tools'},
         div(
