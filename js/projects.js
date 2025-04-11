@@ -29,6 +29,12 @@ window.onload = async () => {
           `During bootcamp I've developed some projects in Le Wagon Tokyo, and now I intend to start some personal projects to hone my coding skills.`,
           `Currently I'm working as a full stack web developer for Equal Entry, using Ruby on Rails, Php, HTML, CSS, JavaScript for our accessibility development projects. I'm also a Teaching Assistant at Le Wagon, a coding school in Tokyo.`
         ],
+    socials: [
+      {href: 'https://www.linkedin.com/in/ctyamashita/', icon: 'fab fa-linkedin'},
+      {href: 'https://github.com/ctyamashita/', icon: 'fab fa-github-square'},
+      {href: 'https://www.instagram.com/ctyamashita/', icon: 'fab fa-instagram-square'},
+      {href: 'https://www.behance.net/ctyamashita', icon: 'fa-brands fa-square-behance'},
+    ],
     front: ['HTML', 'CSS', 'JavaScript', 'Stimulus', 'Bootstrap'],
     back: ['Ruby', 'Ruby on Rails', 'Postgresql'],
     others: ['Visual Studio Code', 'git', 'Photoshop', 'Illustrator', 'Indesign']
@@ -77,10 +83,7 @@ window.onload = async () => {
         info.bio.map(line=>p(line))
       ),
       div({class: 'socials'},
-        a({href: 'https://www.linkedin.com/in/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-linkedin"})),
-        a({href: 'https://github.com/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-github-square"})),
-        a({href: 'https://www.instagram.com/ctyamashita/', class: 'icon-btn', target: '_blank'}, i({class: "fab fa-instagram-square"})),
-        a({href: 'https://www.behance.net/ctyamashita', class: 'icon-btn', target: '_blank'}, i({class: 'fa-brands fa-square-behance'}))
+        info.socials.map(social=>a({href: social.href, class: 'icon-btn', target: '_blank'}, i({class: social.icon})))
       ),
       div({class: 'about-tools'},
         div(
