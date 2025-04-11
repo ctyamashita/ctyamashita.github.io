@@ -279,6 +279,32 @@
     "others":["Visual Studio Code", "git"],
     "team":["Celso Takeshi Yamashita"]
   },
+  "keyboard-tester": {
+    "title": "Keyboard Tester",
+    "id": "keyboard-tester",
+    "color": "tomato",
+    "tag": "Test your switches",
+    "img": "keyboard-tester-cover.webp",
+    "screenshot": "keyboard-tester-screenshot.webp",
+    "icon": "fa-solid fa-keyboard",
+    "description":[
+      "Just for fun HTML, CSS, JS project.",
+      "You can set the visual layout of your keyboard (60%, 65%, 75%, 100%) and test your keyboard key switches."
+    ],
+    "links":[{
+      "href": "https://github.com/ctyamashita/keyboard-tester/",
+      "icon": "fab fa-github-square",
+      "title": "Github"
+    },
+    {
+      "href": "https://ctyamashita.github.io/keyboard-tester/",
+      "icon": "fas fa-desktop",
+      "title": "Web App"
+    }],
+    "front":["HTML", "CSS", "JavaScript"],
+    "others":["Visual Studio Code", "git"],
+    "team":["Celso Takeshi Yamashita"]
+  },
   "task-manager": {
     "title": "Task Manager",
     "id": "task-manager",
