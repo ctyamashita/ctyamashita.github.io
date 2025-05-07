@@ -229,7 +229,7 @@
     "team":["Celso Takeshi Yamashita"]
   },
   "tower-arena": {
-    "title": "Tower Arena",
+    "title": "Kyuuko Tower Arena",
     "id": "tower-arena",
     "color": "deepskyblue",
     "tag": "Explore a 2d/3d floor and fight your way to the top!",
@@ -237,7 +237,9 @@
     "screenshot": "tower-arena-screenshot.webp",
     "icon": "fa-solid fa-kaaba",
     "description":[
-      "This is a mini game where you can battle random enemies and level up your character."
+      "This is a mini game where you climb each floor battling enemies and leveling up your character.",
+      "Also all illustrations are done by me.",
+      "Built with <a href=\"https://vuejs.org/\">Vue</a>, <a href=\"https://sweetalert2.github.io/\">SweetAlert2</a> and <a href=\"https://swiper.com/\">Swiper.js</a>"
     ],
     "links":[{
       "href": "https://github.com/ctyamashita/tower-game-vue",
