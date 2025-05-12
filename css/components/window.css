@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
+  flex-grow: 1;
   z-index: 1;
 }
 
 #windows-container .window-container:not(:only-child):first-child {
   animation: none;
   cursor: pointer;
+  filter: saturate(0.3);
 }
 
 #windows-container .window-container:not(:only-child):first-child .window-content {
@@ -17,6 +19,10 @@
 #windows-container .window-container:not(:only-child):first-child .window-topbar {
   box-shadow: none;
   margin-bottom: 0;
+}
+
+#windows-container .window-container:not(:only-child):first-child:has(.window-topbar:focus) {
+  box-shadow: inset 0 0 0 calc(var(--spacing)/3) white;
 }
 
 #windows-container .window-container:not(:only-child):last-child .window-content {
@@ -55,6 +61,8 @@
 }
 
 .window-topbar {
+  width: 100%;
+  height: calc(3rem - var(--spacing));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -226,7 +234,7 @@
   display: flex;
   align-items: center;
   margin-left: auto;
-  padding: 0 var(--spacing);
+  padding: 0 calc(var(--spacing)/2);
   border-radius: var(--spacing);
   background-color: var(--accent-color);
   width: fit-content;

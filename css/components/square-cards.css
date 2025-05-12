@@ -1,64 +1,83 @@
-.card {
+.illustration .card-link > img.card {
+  object-fit: cover;
   width: 100%;
-  height: calc(100vw - var(--spacing) * 7);
-  background-color: var(--white);
-  border-radius: calc(var(--spacing) * 2);
-  outline: solid calc(var(--spacing)/3) var(--white);
-  outline-offset: calc(-.9 * var(--spacing));
+}
+
+/* new css */
+
+.auto-fit-cards {
+  --card-min-width: 260px;
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min-width), 100%), 1fr));
+}
+
+.auto-fit-cards .card-link {
+  position: relative;
+  color: inherit;
+}
+
+.card-link:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.card-link:focus {
+  border: none;
+  outline: none;
+}
+
+.card-link .card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: calc(8px * 2);
+  outline: solid 2px white;
+  outline-offset: -4px;
   transform: scale(1);
-  transition: .3s;
+  transition: scale .3s;
   filter: grayscale(1) opacity(.5);
   text-decoration: none;
 }
 
-.card:hover, .card:focus {
-  border-radius: var(--spacing);
-  outline-offset: calc(.5 * var(--spacing));
+.card-link:hover .card, .card-link:focus .card {
+  border-radius: 8px;
+  outline-offset: 4px;
+  outline-color: white;
+  background-color: white;
   transform: scale(.95);
-  box-shadow: 0 0 var(--spacing) var(--spacing) rgba(0,0,0,.3);
+  box-shadow: 0 0 8px 8px rgba(0,0,0,.2);
   transition: .3s;
   filter: unset;
 }
 
-.card h3 {
+.card-link .card h3 {
   opacity: 0;
-  color: var(--white);
+  color: white;
   font-size: 2.5rem;
   line-break: auto;
   width: 70%;
-  margin-left: calc(var(--spacing) * 2);
-  margin-top: calc(var(--spacing) * 2);
+  margin-left: 16px;
+  margin-top: 16px;
   margin-bottom: 0;
   line-height: 1;
-  text-shadow: 0 0 var(--spacing) rgba(0,0,0,.5);
+  text-shadow: 0 0 8px rgba(0,0,0,.5);
   letter-spacing: .2rem;
   transition: .3s;
 }
 
-.card:hover h3, .card:focus h3 {
+.card-link:hover .card h3, .card-link:focus .card h3 {
   opacity: 1;
   transition: .3s;
 }
 
-.cards p { margin: 0; }
-
-.cards { grid-template-columns: 1fr; }
-
-@media (min-width: 520px) {
-  .cards { grid-template-columns: 1fr 1fr; }
-  .card { height: calc(50vw - (var(--spacing) * 4.5)); }
-}
-
-@media (min-width: 960px) {
-  .cards { grid-template-columns: 1fr 1fr 1fr; }
-  .card { height: calc((100vw/3) - (var(--spacing) * 3.331)); }
-}
-
-@media (min-width: 1200px) {
-  .cards { grid-template-columns: 1fr 1fr 1fr 1fr; }
-  .card { height: calc(25vw - (var(--spacing) * 6.305)); }
-}
-
-.illustration > img.card {
-  object-fit: cover;
+@media (max-width: 591px) {
+  .card-link .card h3 {
+    font-size: 13vw;
+  }
 }

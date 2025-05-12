@@ -59,19 +59,19 @@ window.onload = async () => {
 
   const Navbar = () => nav({id: 'navbar'},
     button({id:'logo', onclick: () => closeAllWindows()},
-      h1('Celso Takeshi Yamashita Portfolio'), img({src: '../images/logo-05.svg', alt: 'logo'}),
+      h1('Celso Takeshi Yamashita Portfolio'), img({src: '../images/logo-05.svg', alt: 'Celso Takeshi Yamashita logo'}),
     ),
     div({class: 'nav-item-container'},
       button({class: 'nav-expand', onclick: (e) => expandMenu(e), ariaExpanded: false, onblur: () => collapseMenu()}, i({class: 'fas fa-bars'})),
       ul(
-        navBarItems.map(item=>li(button({onclick: () => openWindow(item.toLowerCase()), onblur: () => collapseMenu(), class: 'nav-item', id: item.toLowerCase()}, item)))
+        navBarItems.map(item=>li(button({onclick: () => openWindow(item.toLowerCase(), true), onblur: () => collapseMenu(), class: 'nav-item', id: item.toLowerCase()}, item)))
       )
     )
   )
 
-  const Projects = ({items}) => div({class: 'window-content cards'},
-      items.map(item=>a({onclick: () => openWindow(item.id), id: item.id, class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`, href: `#window-${item.id}`},
-        h3(item.title))
+  const Projects = ({items}) => div({class: 'window-content auto-fit-cards'},
+      items.map(item=>a({onclick: () => openWindow(item.id, true), id: item.id, class:'card-link', href: `#window-${item.id}`},
+        div({class:'card', style: `background: linear-gradient(160deg, rgba(0,0,0,.5) 20%, transparent 75%), url(images/${item.img}); background-position: center; background-size: cover`}, h3(item.title)))
       )
   )
 
@@ -136,8 +136,8 @@ window.onload = async () => {
     ),
   )
 
-  const Illustrations = (({imgs}) => div({class: "window-content illustration cards"},
-    imgs.map(item => img({src: `images/${item}`, class: "card"}))
+  const Illustrations = (({imgs}) => div({class: "window-content illustration auto-fit-cards"},
+    imgs.map(item => div({class: 'card-link'}, img({src: `images/${item}`, class: "card"})))
     )
   )
 
@@ -153,8 +153,8 @@ window.onload = async () => {
     }
   }
 
-  const Window = ({id}) => div({class: "window-container", id: `window-${id}`, style: `background: ${projectsData[id]?.color}`},
-      div({class: 'window-topbar', onclick: () => expandWindow(id)},
+  const Window = ({id, disabled}) => div({class: "window-container", id: `window-${id}`, style: `background: ${projectsData[id]?.color}`},
+      button({class: 'window-topbar', onclick: () => expandWindow(id), disabled: disabled},
       h2(Object.keys(projectsData).includes(id) ? i({class: projectsData[id].icon}) : i({class: id == 'projects' ? 'fas fa-folder' : "fa-solid fa-circle-user"}),
         ` ${projectsData[id] ? projectsData[id].title : id.replaceAll('-',' ')}`
       ),
@@ -169,10 +169,15 @@ window.onload = async () => {
 
   // functions
 
-  const openWindow = (id) => {
+  const openWindow = (id, disabled) => {
     const clickedBtn = document.getElementById(id);
     if (clickedBtn.tagName == 'BUTTON') clickedBtn.setAttribute('disabled', true)
     const windowsContainer = document.body.lastElementChild
+    if (windowsContainer.children.length > 0) {
+      const newWindow = windowsContainer.lastElementChild;
+      newWindow.querySelector('button').removeAttribute('disabled')
+    }
+
     if (windowsContainer.children.length >= 2) {
       const oldWindow = windowsContainer.firstElementChild;
       const btnId = oldWindow.id.replace('window-', '');
@@ -180,7 +185,7 @@ window.onload = async () => {
       btn?.removeAttribute('disabled');
       oldWindow.remove();
     }
-    van.add(windowsContainer, Window({id: id}));
+    van.add(windowsContainer, Window({id: id, disabled: disabled}));
     if (windowsContainer.lastElementChild.id == 'window-') windowsContainer.lastElementChild.remove();
     location.hash = `window-${id}`;
   }
@@ -189,7 +194,10 @@ window.onload = async () => {
     const clickedWindowId = `window-${id}`;
     const windowsContainer = document.body.lastElementChild;
     const oldWindow = windowsContainer.firstElementChild;
-
+    const newWindow = windowsContainer.lastElementChild;
+    newWindow.querySelector('button').removeAttribute('disabled')
+    oldWindow.querySelector('button').setAttribute('disabled', '')
+    
     if (windowsContainer.children.length >= 2 && oldWindow.id == clickedWindowId) {
       windowsContainer.append(...Array.from(windowsContainer.childNodes).reverse());
       location.hash = `window-${id}`;
@@ -242,7 +250,7 @@ window.onload = async () => {
   const window = location.hash
   if (typeof window == 'string' && window !== '') {
     const id = window.replace('#window-','');
-    if (!navBarItems.map(item=>item.toLowerCase()).includes(id)) openWindow('projects')
-    if (window.includes('window-')) openWindow(id);
+    if (!navBarItems.map(item=>item.toLowerCase()).includes(id)) openWindow('projects', false)
+    if (window.includes('window-')) openWindow(id, true);
   } 
 }

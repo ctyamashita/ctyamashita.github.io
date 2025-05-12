@@ -55,7 +55,8 @@
   #navbar ul { display: none; }
 
   #navbar .nav-item-container:has([aria-expanded="true"]) button.nav-expand {
-    background-color: var(--accent-color);
+    background-color: white;
+    color: var(--accent-color);
   }
 
   #navbar .nav-item-container:has([aria-expanded="true"]) ul {
