@@ -1,4 +1,31 @@
-{
+{ 
+  "invoice-dashboard": {
+    "title": "Invoice Dashboard",
+    "id": "invoice-dashboard",
+    "color": "rgba(47, 111, 235, 1)",
+    "tag": "Track your invoices!",
+    "img": "invoice-dashboard-cover.webp",
+    "screenshot": "invoice-dashboard-screenshot.webp",
+    "icon": "fa-solid fa-chart-line",
+    "description":[
+      "Track your invoices and clients on this simple dashboard.",
+      "This project was built using nextJS."
+    ],
+    "links":[{
+      "href": "https://github.com/ctyamashita/nextjs-dashboard",
+      "icon": "fab fa-github-square",
+      "title": "Github"
+    },
+    {
+      "href": "https://nextjs-dashboard-six-psi-69.vercel.app/",
+      "icon": "fas fa-desktop",
+      "title": "Web App"
+    }],
+    "front": ["React","CSS","HTML","Tailwind"],
+    "back": ["NextJS","PostgreSQL"],
+    "others": ["Visual Studio Code", "git"],
+    "team":["Celso Takeshi Yamashita"]
+  },
   "photo-ronin": {
     "title": "Photo Ronin",
     "id": "photo-ronin",
